@@ -1,0 +1,204 @@
+<html>
+  <script src="https://aframe.io/releases/1.0.0/aframe.min.js"></script>
+  <!-- <script src="https://raw.githack.com/jeromeetienne/AR.js/3.0.0/aframe/build/aframe-ar.js"></script> -->
+  <script src="https://raw.githack.com/jeromeetienne/AR.js/2.2.2/aframe/build/aframe-ar.min.js"></script>
+
+  <script src="/script.js"></script>
+  <script src="/cursor.js" defer></script>
+
+  <style>
+    .arjs-loader {
+      height: 170%;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .arjs-loader div {
+      text-align: center;
+      font-size: 1.25em;
+      color: teal;
+      padding: 20px;
+    }
+  </style>
+
+  <body style="margin : 0px; overflow: hidden;">
+    <div class="arjs-loader">
+      <div>
+        Please scan the AR marker for the AR experience. <br />
+        <br/>
+        (Hover to picture/video using the teal ring and click to interact)
+      </div>
+    </div>
+
+    <a-scene
+      embedded
+      arjs="debugUIEnabled:false; sourceType: webcam"
+      vr-mode-ui="enabled: false"
+    >
+      <a-entity camera look-controls>
+        <a-entity
+          cursor="fuse: false"
+          position="0 0 -1"
+          geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03"
+          material="color: teal; shader: flat"
+        >
+        </a-entity>
+      </a-entity>
+
+      <a-assets>
+        <video
+          src="https://cdn.glitch.com/a38f9106-8cdc-4d02-b1d9-c6e6e0ec1d7f%2FARLink_Video.mp4?v=1615304951476"
+          preload="auto"
+          id="video"
+          crossorigin
+          webkit-playsinline
+          autoplay="false"
+        ></video>
+        <img
+          id="buttonImg"
+          src="https://cdn.glitch.com/a46c3f68-2f15-429d-af36-27cb89cd1d60%2Fic_play_circle_filled_black_36dp_2x.png?1518043219946"
+        />
+        <img
+          id="myimage"
+          src="https://cdn.glitch.com/a38f9106-8cdc-4d02-b1d9-c6e6e0ec1d7f%2FMuhammadHusaini_Picture(JPEG).png?v=1614173246076"
+        />
+        <img
+          id="facebooklogo"
+          src="https://cdn.glitch.com/a38f9106-8cdc-4d02-b1d9-c6e6e0ec1d7f%2FFacebookLogo.png?v=1614257410462"
+        />
+        <img
+          id="twitterlogo"
+          src="https://cdn.glitch.com/a38f9106-8cdc-4d02-b1d9-c6e6e0ec1d7f%2FTwitterLogo.png?v=1614257406940"
+        />
+        <img
+          id="instagramlogo"
+          src="https://cdn.glitch.com/a38f9106-8cdc-4d02-b1d9-c6e6e0ec1d7f%2FInstagramLogo.png?v=1614512424632"
+        />
+        <img
+          id="linkedinlogo"
+          src="https://cdn.glitch.com/a38f9106-8cdc-4d02-b1d9-c6e6e0ec1d7f%2FLinkedInLogo.png?v=1614507315396"
+        />
+        <img
+          id="emaillogo"
+          src="https://cdn.glitch.com/a38f9106-8cdc-4d02-b1d9-c6e6e0ec1d7f%2FMail_Logo.png?v=1614516270682"
+        />
+        <img
+          id="calllogo"
+          src="https://cdn.glitch.com/a38f9106-8cdc-4d02-b1d9-c6e6e0ec1d7f%2FCall_Logo.png?v=1614515707477"
+        />
+        <img
+          id="companylogo"
+          src="https://cdn.glitch.com/a38f9106-8cdc-4d02-b1d9-c6e6e0ec1d7f%2FCompanyLink.png?v=1616497648051"
+        />
+      </a-assets>
+
+      <!-- <a-marker preset="hiro" cursor="rayOrigin: mouse; fuse: false; size: 20;"> -->
+      <a-marker preset="hiro">
+        <a-video
+          vid-player
+          src="#video"
+          position="0.25 0 0.1"
+          rotation="-90 0 0"
+          scale="2 1.3 1"
+        ></a-video>
+        <a-image
+          src="#myimage"
+          position="-1.1 0.05 -0.8"
+          rotation="-90 0 0"
+          scale="0.6 0.6 0.6"
+        ></a-image>
+
+        <a-image
+          facebook-link
+          src="#facebooklogo"
+          position="-1.3 0.05 -0.3"
+          rotation="-90 0 0"
+          scale="0.3 0.3 0.3"
+        >
+        </a-image>
+
+        <a-image
+          twitter-link
+          src="#twitterlogo"
+          position="-1.3 0.05 0"
+          rotation="-90 0 0"
+          scale="0.3 0.3 0.3"
+        >
+        </a-image>
+
+        <a-image
+          instagram-link
+          src="#instagramlogo"
+          position="-0.95 0.05 -0.3"
+          rotation="-90 0 0"
+          scale="0.3 0.3 0.3"
+        >
+        </a-image>
+
+        <a-image
+          linkedin-link
+          src="#linkedinlogo"
+          position="-0.95 0.05 0"
+          rotation="-90 0 0"
+          scale="0.3 0.3 0.3"
+        >
+        </a-image>
+
+         <a-image
+          company-link
+          src="#companylogo"
+          position="-1.125 0.05 0.3"
+          rotation="-90 0 0"
+          scale="0.3 0.3 0.3"
+        >
+        </a-image>
+        
+        <a-image
+          email-link
+          src="#emaillogo"
+          position="-0.95 0.05 0.6"
+          rotation="-90 0 0"
+          scale="0.3 0.3 0.3"
+        >
+        </a-image>
+        
+        <a-image
+          call-link
+          src="#calllogo"
+          position="-1.3 0.05 0.6"
+          rotation="-90 0 0"
+          scale="0.3 0.3 0.3"
+        >
+        </a-image>
+
+        <a-text
+          value="Muhammad Husaini"
+          color="white"
+          position="-0.8 0.05 -0.9"
+          rotation="-90 0 0"
+          font="https://cdn.aframe.io/fonts/Exo2Bold.fnt"
+          letter-spacing="1.0"
+        >
+        </a-text>
+        <a-text
+          value="AR Developer"
+          color="#D3D3D3"
+          position="-0.8 0.05 -0.7"
+          rotation="-90 0 0"
+          font="https://cdn.aframe.io/fonts/DejaVu-sdf.fnt"
+        >
+        </a-text>
+      </a-marker>
+
+      <!--
+      <a-entity camera look-controls>
+          
+      </a-entity>-->
+    </a-scene>
+  </body>
+</html>
